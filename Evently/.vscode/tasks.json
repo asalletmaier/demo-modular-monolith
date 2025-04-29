@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Evently.sln",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "publish",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "publish",
+                "${workspaceFolder}/Evently.sln",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary;ForceNoAlign"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "watch",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "watch",
+                "run",
+                "--project",
+                "${workspaceFolder}/Evently.sln"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "docker compose up (Debug)",
+            "type": "shell",
+            "command": "docker compose -f docker-compose.yml -f docker-compose.debug.yml up -d",
+            "problemMatcher": [],
+            "isBackground": false,
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            }
+        },
+        {
+            "label": "docker compose down (Debug)",
+            "type": "shell",
+            "command": "docker compose down",
+            "problemMatcher": [],
+            "isBackground": false,
+            "group": {
+              "kind": "build",
+              "isDefault": true
+            }
+        }
+    ]
+}

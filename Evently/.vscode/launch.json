@@ -1,0 +1,66 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Docker Compose Up (Debug)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+              "run",
+              "start"
+            ],
+            "preLaunchTask": "docker compose up (Debug)",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": "Docker .NET Attach (Preview)",
+            "type": "docker",
+            "request": "attach",
+            "platform": "netCore",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}"
+            },
+            "netCore": {
+                "debuggerPath": "/remote_debugger/vsdbg"
+            }           
+        },
+        {
+            "name": "Run Docker Compose Down (Debug)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+              "run",
+              "start"
+            ],
+            "preLaunchTask": "docker compose down (Debug)",
+            "skipFiles": ["<node_internals>/**"]
+        },
+        {
+            "name": ".NET Core Launch (web)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/API/Evently.Api/bin/Debug/net9.0/Evently.Api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/API/Evently.Api",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
