@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Evently.Modules.Events.Api.Database.Migrations
+namespace Evently.Modules.Events.Infrastructure.Database.Migrations
 {
     /// <inheritdoc />
     public partial class CreateDatabase : Migration
